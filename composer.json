@@ -1,0 +1,36 @@
+{
+  "name": "mfn/laravel-view-docblock",
+  "description": "Laravel View docblock argument validation",
+  "type": "library",
+  "keywords": [
+    "laravel",
+    "view",
+    "parameter",
+    "validation",
+    "argument"
+  ],
+  "homepage": "http://github.com/mfn/php-laravel-view-docblock",
+  "authors": [
+    {
+      "name": "Markus Fischer",
+      "email": "markus@fischer.name",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/mfn/php-laravel-view-docblock/issues"
+  },
+  "license": "MIT",
+  "require": {
+    "php": ">=5.6",
+    "illuminate/support": "5.0.x|5.1.x",
+    "illuminate/view": "5.0.x|5.1.x",
+    "mfn/docblock-normalize": "0.1",
+    "mfn/argument-validation": "0.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mfn\\Laravel\\ViewDocblock\\": "src/"
+    }
+  }
+}
