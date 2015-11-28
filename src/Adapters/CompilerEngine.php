@@ -57,19 +57,26 @@ class CompilerEngine extends \Illuminate\View\Engines\CompilerEngine implements 
     protected $requireValidationOnData = false;
 
     /**
+     * @var string[]
+     */
+    protected $argumentBlacklist = [];
+
+    /**
      * Create a new Blade view engine instance.
      * @param CompilerInterface $compiler
      * @param Parser $parser
      * @param ExtractFromDocblock $extractor
      * @param ArgumentValidation $validator
      * @param bool $requireValidationOnData
+     * @param string[] $argumentBlacklist
      */
     public function __construct(
         CompilerInterface $compiler,
         Parser $parser,
         ExtractFromDocblock $extractor,
         ArgumentValidation $validator,
-        $requireValidationOnData = false
+        $requireValidationOnData = false,
+        $argumentBlacklist = []
     ) {
         parent::__construct($compiler);
 
@@ -77,6 +84,7 @@ class CompilerEngine extends \Illuminate\View\Engines\CompilerEngine implements 
         $this->extractor = $extractor;
         $this->validator = $validator;
         $this->requireValidationOnData = $requireValidationOnData;
+        $this->argumentBlacklist = $argumentBlacklist;
     }
 
     /**
@@ -91,9 +99,9 @@ class CompilerEngine extends \Illuminate\View\Engines\CompilerEngine implements 
     {
         $arguments = $data;
 
-        # Remove internal ones
-        unset($arguments['__env']);
-        unset($arguments['app']);
+        foreach ($this->argumentBlacklist as $argument) {
+            unset($arguments[$argument]);
+        }
 
         $this->validate($path, $arguments);
 

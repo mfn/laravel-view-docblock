@@ -102,7 +102,8 @@ class Provider extends ServiceProvider
                     $app[Parser::class],
                     $app[ExtractFromDocblock::class],
                     $app[ArgumentValidation::class],
-                    $app['config']->get('view-docblock.require_docblock_on_data')
+                    $app['config']->get('view-docblock.require_docblock_on_data'),
+                    $app['config']->get('view-docblock.argument_blacklist')
                 );
             });
             $resolver->register('blade', function () use ($app) {
@@ -111,7 +112,8 @@ class Provider extends ServiceProvider
                     $app[Parser::class],
                     $app[ExtractFromDocblock::class],
                     $app[ArgumentValidation::class],
-                    $app['config']->get('view-docblock.require_docblock_on_data')
+                    $app['config']->get('view-docblock.require_docblock_on_data'),
+                    $app['config']->get('view-docblock.argument_blacklist')
                 );
             });
 

@@ -67,6 +67,21 @@ return [
     */
     'report_missing_arguments' => false,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Blacklist variables from being passed to the validator
+    |--------------------------------------------------------------------------
+    |
+    | Some variables may be deemed internal to the respective template engine
+    | implementation, some may be global defaults however you don't want to
+    | necessarily document them in every template.
+    |
+    */
+    'argument_blacklist' => [
+        '__env',
+        'app',
+        'obLevel',
+    ],
 
     /*
     |--------------------------------------------------------------------------

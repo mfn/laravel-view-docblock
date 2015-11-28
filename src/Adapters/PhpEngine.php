@@ -56,21 +56,29 @@ class PhpEngine extends \Illuminate\View\Engines\PhpEngine implements ArgumentVa
     protected $requireValidationOnData = false;
 
     /**
+     * @var string[]
+     */
+    protected $argumentBlacklist = [];
+
+    /**
      * @param Parser $parser
      * @param ExtractFromDocblock $extractor
      * @param ArgumentValidation $validator
      * @param bool $requireValidationOnData
+     * @param string[] $argumentBlacklist
      */
     public function __construct(
         Parser $parser,
         ExtractFromDocblock $extractor,
         ArgumentValidation $validator,
-        $requireValidationOnData = false
+        $requireValidationOnData = false,
+        $argumentBlacklist = []
     ) {
         $this->parser = $parser;
         $this->extractor = $extractor;
         $this->validator = $validator;
         $this->requireValidationOnData = $requireValidationOnData;
+        $this->argumentBlacklist = $argumentBlacklist;
     }
 
     /**
@@ -85,9 +93,9 @@ class PhpEngine extends \Illuminate\View\Engines\PhpEngine implements ArgumentVa
     {
         $arguments = $data;
 
-        # Remove internal ones
-        unset($arguments['__env']);
-        unset($arguments['app']);
+        foreach ($this->argumentBlacklist as $argument) {
+            unset($arguments[$argument]);
+        }
 
         $this->validate($path, $arguments);
 
