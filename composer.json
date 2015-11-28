@@ -26,7 +26,7 @@
     "illuminate/support": "5.0.x|5.1.x",
     "illuminate/view": "5.0.x|5.1.x",
     "mfn/docblock-normalize": "0.1",
-    "mfn/argument-validation": "0.1"
+    "mfn/argument-validation": "0.2"
   },
   "autoload": {
     "psr-4": {
