@@ -29,14 +29,14 @@
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Engines\EngineResolver;
+use Mfn\ArgumentValidation\ArgumentValidation;
+use Mfn\ArgumentValidation\ExtractFromDocblock;
+use Mfn\ArgumentValidation\TypeDescriptionParser;
 use Mfn\DocblockNormalize\Parser;
 use Mfn\DocblockNormalize\TokenParser;
 use Mfn\DocblockNormalize\TokenParserInterface;
 use Mfn\Laravel\ViewDocblock\Adapters\CompilerEngine;
 use Mfn\Laravel\ViewDocblock\Adapters\PhpEngine;
-use Mfn\ArgumentValidation\ExtractFromDocblock;
-use Mfn\ArgumentValidation\ArgumentValidation;
-use Mfn\ArgumentValidation\TypeDescriptionParser;
 
 class Provider extends ServiceProvider
 {
@@ -82,6 +82,7 @@ class Provider extends ServiceProvider
                     }
                 }
             }
+
             return $validator;
         });
 

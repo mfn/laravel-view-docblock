@@ -26,8 +26,8 @@
  * THE SOFTWARE.
  */
 
-use Mfn\Laravel\ViewDocblock\Types\CollectionType;
 use Mfn\ArgumentValidation\Types\Array_\TraversableType;
+use Mfn\Laravel\ViewDocblock\Types\CollectionType;
 
 return [
 

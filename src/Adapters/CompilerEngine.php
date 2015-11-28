@@ -27,11 +27,11 @@
  */
 
 use Illuminate\View\Compilers\CompilerInterface;
+use Mfn\ArgumentValidation\ArgumentValidation;
+use Mfn\ArgumentValidation\ExtractFromDocblock;
 use Mfn\DocblockNormalize\Parser;
 use Mfn\Laravel\ViewDocblock\ArgumentValidationInterface;
 use Mfn\Laravel\ViewDocblock\ArgumentValidationTrait;
-use Mfn\ArgumentValidation\ExtractFromDocblock;
-use Mfn\ArgumentValidation\ArgumentValidation;
 
 class CompilerEngine extends \Illuminate\View\Engines\CompilerEngine implements ArgumentValidationInterface
 {

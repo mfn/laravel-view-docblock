@@ -26,11 +26,11 @@
  * THE SOFTWARE.
  */
 
+use Mfn\ArgumentValidation\ArgumentValidation;
+use Mfn\ArgumentValidation\ExtractFromDocblock;
 use Mfn\DocblockNormalize\Parser;
 use Mfn\Laravel\ViewDocblock\ArgumentValidationInterface;
 use Mfn\Laravel\ViewDocblock\ArgumentValidationTrait;
-use Mfn\ArgumentValidation\ExtractFromDocblock;
-use Mfn\ArgumentValidation\ArgumentValidation;
 
 class PhpEngine extends \Illuminate\View\Engines\PhpEngine implements ArgumentValidationInterface
 {
