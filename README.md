@@ -61,10 +61,10 @@ For a list of supported defaul types, please see https://github.com/mfn/php-para
 
 - `report_missing_arguments`: Set to true to report missing parameter types as errors. Defaults to `false`.
 
-- `argument_blacklist`: A list of variables which should automatically be **excluded** from the validation. Useful for global or internal variables which available in all templates.
+- `argument_blacklist`: A list of variables which should automatically be **excluded** from the validation. Useful for global or internal variables which are available in all templates.
 
 - `additional_types`: register additional validation types, specific for Laravel:
-  - `CollectionType`: supports `Collection<SomeObject>`. Note: if an inner object type is provided (`SomeObject` in this example), the collection is iterated to ensure the types meatch!
+  - `CollectionType`: supports `Collection<SomeObject>`. Note: if an inner object type is provided (`SomeObject` in this example), the collection is iterated to ensure the types match!
   - `TraversableType`: transparently supports any class implementing the `Traversable` interface like an array. Note: inner types are ignored when encountering such a type.
 
 The default settings are for easy getting started/integrating into existing
